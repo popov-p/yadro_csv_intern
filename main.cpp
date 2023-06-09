@@ -13,7 +13,12 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	string filename = argv[1];
-	Reader rdr = Reader("example.csv");
-	rdr.start(cin, cout);
+	try {
+		Reader rdr = Reader("example.csv");
+		rdr.start(cin, cout);
+	}
+	catch (exception& e) {
+		cout << e.what()<<endl;
+	}
 	return 0;
 }
