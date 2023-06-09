@@ -6,10 +6,14 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-	Reader rdr = Reader("qwe.txt");
-	rdr.set_display_mode(std::cin);
-	//cout << "Hello CMake." << endl;
+	if (argc < 2) {
+		cout << "usage: csv_intern.exe <filename> (must be inside the same directory as .exe)" << endl;
+		return 1;
+	}
+	string filename = argv[1];
+	Reader rdr = Reader("example.csv");
+	rdr.start(cin, cout);
 	return 0;
 }
